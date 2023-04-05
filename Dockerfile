@@ -5,4 +5,4 @@ WORKDIR /app
 COPY requirements.txt requirements.txt
 RUN pip3 install -r requirements.txt
 COPY read-secret.py read-secret.py 
-CMD [ "python3", "read-secret.py "]
+CMD [ "python3", "read-secret.py"]

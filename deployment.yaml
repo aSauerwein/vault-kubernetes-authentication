@@ -18,5 +18,23 @@ spec:
       serviceAccountName: vault-sa
       automountServiceAccountToken: true
       containers:
-      - image: nginx:latest
+      - image: harbor.k8s.ntslab.loc/library/vault-example@sha256:6745339fed91fe16815a2119fd7f06bd07e1881faab1c5f914997bc1749f2470
         name: nginx
+        env:
+          - name: VAULT_URL
+            value: "https://asa-vault.ntslab.loc:8200"
+          - name: VAULT_VERIFY
+            value: "False"
+          - name: VAULT_ROLE
+            value: "vault-example"
+          - name: VAULT_MOUNT_POINT
+            value: "k8s-di-apps"
+          - name: VAULT_SECRET
+            value: "k8s/vault/example"
+        resources:
+          requests:
+            memory: "100Mi"
+            cpu: "250m"
+          limits:
+            memory: "100Mi"
+            cpu: "500m"
