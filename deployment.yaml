@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: vault-example
+  name: vault-example
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vault-example
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: vault-example
+    spec:
+      serviceAccountName: vault-sa
+      automountServiceAccountToken: true
+      containers:
+      - image: nginx:latest
+        name: nginx
