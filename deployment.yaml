@@ -18,7 +18,7 @@ spec:
       serviceAccountName: vault-sa
       automountServiceAccountToken: true
       containers:
-      - image: harbor.k8s.ntslab.loc/library/vault-example@sha256:6745339fed91fe16815a2119fd7f06bd07e1881faab1c5f914997bc1749f2470
+      - image: harbor.k8s.ntslab.loc/library/vault-example@sha256:4a582af274fa7eb96aec9fe6ef39a102e599402d3d64ae477770ba8692f19a3e
         name: nginx
         env:
           - name: VAULT_URL
